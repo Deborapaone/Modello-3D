@@ -23,9 +23,8 @@ archivo .html
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(1, 1, 1);
-        scene.add(light);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+        scene.add(ambientLight);
 
         const loader = new THREE.GLTFLoader();
         loader.load('https://deborapaone.github.io/Modello-3D/cute_robot_companion_glb.glb', function (gltf) {
