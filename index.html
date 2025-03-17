@@ -23,7 +23,6 @@ archivo .html
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMap.enabled = true; // Abilita ombre
         document.body.appendChild(renderer.domElement);
 
         // Luci con tonalità più calda
@@ -32,7 +31,6 @@ archivo .html
 
         const directionalLight = new THREE.DirectionalLight(0xffd700, 1.5);
         directionalLight.position.set(2, 2, 5);
-        directionalLight.castShadow = true;
         scene.add(directionalLight);
 
         const loader = new THREE.GLTFLoader();
@@ -40,9 +38,7 @@ archivo .html
             const model = gltf.scene;
             model.traverse((child) => {
                 if (child.isMesh) {
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-                    child.material.color.set(0x8a2be2); // Cambia colore del modello a viola
+                    child.material.color.set(0xffff00); // Cambia colore del modello a giallo
                 }
             });
             scene.add(model);
@@ -68,4 +64,5 @@ archivo .html
     </script>
 </body>
 </html>
+
 
