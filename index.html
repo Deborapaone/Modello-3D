@@ -30,7 +30,7 @@ archivo .html
         scene.background = new THREE.Color(0xf0f0d8); // Sfondo chiaro tendente al beige
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 1, 2.5); // Avvicina la telecamera per zoommare sul modello
+        camera.position.set(2.5, 1, 2); // Avvicina la telecamera per zoommare sul modello
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth * 0.8, window.innerHeight * 0.8);
@@ -47,8 +47,8 @@ archivo .html
         const loader = new THREE.GLTFLoader();
         loader.load('https://deborapaone.github.io/Modello-3D/tiny_frog.glb', function (gltf) {
             const model = gltf.scene;
-            model.position.set(0, -0.5, 0); // Modifica la posizione del modello
-            model.scale.set(1.2, 1.2, 1.2); // Aumenta la scala del modello per un effetto di zoom
+            model.position.set(2, 2.5, 2); // Modifica la posizione del modello
+            model.scale.set(2, 2, 2); // Aumenta la scala del modello per un effetto di zoom
             model.traverse((child) => {
                 if (child.isMesh) {
                     child.material.color.set(0xffff00); // Cambia colore del modello a giallo
