@@ -23,10 +23,22 @@ archivo .html
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(1, 1, 1);
+        const ambientlight = new THREE.AmbientLight(0xffffff, 0.8);
+       
         scene.add(light);
+      
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight1.position.set(2, 2, 2);
+        scene.add(directionalLight1);
 
+      const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight2.position.set(-2, -2, 2);
+        scene.add(directionalLight2);
+
+      const pointLight = new THREE.PointLight(0xffffff, 1, 10);
+        pointLight.position.set(1, 2, 3);
+        scene.add(pointLight);
+      
         const loader = new THREE.GLTFLoader();
         loader.load('https://deborapaone.github.io/Modello-3D/cute_robot_companion_glb.glb', function (gltf) {
             scene.add(gltf.scene);
